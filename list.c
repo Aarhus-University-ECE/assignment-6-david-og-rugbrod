@@ -34,24 +34,45 @@ int size(node *head)
 }
 
 // exersice 3.c and 3.d
-void printout(node *l) {
+void printout(node *head) {
+
+  /*
+    Answer to 3.c
+    initially the code doesnt run. because we dont 
+    go to the next element in the tree. thus the code
+    will run indefinetly
+  */
+
+
   // pre:  head points to the first, empty element.
   //       The last element's next is NULL
   // post: The values of the list are printed out
-  node *p = l->next;
-  while (p != NULL) {
-    printf("%d, ", p->data);
+  node *p = head->next;
+  while (p != NULL) 
+  {
+    printf("%d, ", p->data); 
+    p = p->next;
   }
   printf("\n");
 }
 
 // exersice 3.e
-int largest(node *l) {
-  // pre:  head poinst to the first, empty element.
+int largest(node *head) {
+  // pre:  head points to the first, empty element.
   // 	     The last element's next is NULL.
   // post: Returns the largest value of the list
 
-  return 0;
+int x = head->data;
+  node *p = head->next;
+  while (p != NULL) 
+  {
+    if(p->data > x){
+      x = p->data;
+    }
+    //printf("%d, ", p->data); 
+    p = p->next;
+  }
+  return x;
 }
 
 #ifndef TEST
@@ -63,6 +84,8 @@ int main() {
   add(list, 3);
   add(list, 2);
   /*
+      root
+         \
           1
            \ 
             3
@@ -75,13 +98,15 @@ int main() {
  printf("%d\n",size(list));
   add(list, 2);
   /*
+      root 
+         \
           1
            \ 
             3
              \
               2
                \
-                4
+                2
                  \
                   null
   */
