@@ -20,9 +20,17 @@ void add(node *head, int x) {
 }
 
 // exersice 3.b
-int size(node *l) {
-
-	return 0;
+int size(node *head) 
+{
+  int count = 0;
+  node *p = head;
+  while (p->next != NULL)
+  {
+    count++;
+    p = p->next;
+  }
+  
+	return count;
 }
 
 // exersice 3.c and 3.d
@@ -54,10 +62,30 @@ int main() {
   add(list, 1);
   add(list, 3);
   add(list, 2);
-  // Show list here
-  add(list, 2);
-  // Show list here
+  /*
+          1
+           \ 
+            3
+             \
+              2
+               \
+                null       
+  */
 
+ printf("%d\n",size(list));
+  add(list, 2);
+  /*
+          1
+           \ 
+            3
+             \
+              2
+               \
+                4
+                 \
+                  null
+  */
+  printf("%d\n",size(list));
   return 0;
 }
 
