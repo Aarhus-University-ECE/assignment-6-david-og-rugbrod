@@ -1,12 +1,6 @@
 #include<stdio.h>
 #include<string.h>
 #include <stdlib.h>
-
-
-void OperationOne(){
-    abort();
-}
-
 void OperationTwo(int Register[],int d,int n)
 {
     Register[d] = n;
@@ -27,35 +21,42 @@ void OperationSix(int Register[],int d,int n){
 void OperationSeven(int Register[],int d,int n){
     Register[d] *= Register[n];
 }
-void OperationEight(int Register[],int d,int n){
+void OperationEight(int Register[],int d,int n){ // properly wrong 
     Register[d] = Register[n-1];
 }
-void OperationNine(int Register[],int d,int n){
+void OperationNine(int Register[],int d,int n){  // properly wrong 
     Register[d] = Register[d-1]; 
+}
+void OperationTeen(int Register[],int d,int n){  // properly wrong 
+    if (n == 0)
+    {
+        NULL;
+    }
+    else
+    {
+        Register[d] = Register[n];    
+    }
 }
 int main (void)
 {
-    
     int Registers[10] = {0,0,0,0,0,0,0,0,0,0};
     int startValue;
     int hundreder;
     int d;
     int n;
-    int Ruben_bool=0;
+    int Ruben_bool = 0;
     int reslutat = 0;
     int *pointer;
-    while (Ruben_bool=0)
+    while (Ruben_bool == 0)
     {
         printf("input 3 Digt Value : ");
-        scanf("%d",startValue);
+        scanf("%d",&startValue);
         hundreder = startValue/100;
         d = (startValue - hundreder*10)/10;
         n = startValue - hundreder*10 - d*10;
-        pointer = &n;
         if (hundreder == 1)
         {
-            printf("100\n");
-            Ruben_bool++;
+            Ruben_bool = 1;
         }
         if (hundreder == 2)
         {
@@ -95,6 +96,6 @@ int main (void)
         }
         reslutat++;
     }
-    printf("%d",reslutat);
+    printf("reslutatet er: %d",reslutat);
     return 0;
 }
